@@ -28,13 +28,13 @@
 已稳定使用2年的机场推荐：https://inet.ssp.lol/#/register?code=p5BXMYcJ
 </p>
 
-### 工具介绍
-+ Clash 默认的GFW代理规则内容太多，使用过程中明显感觉到有延迟
-+ 本工具的想法是代理规则一边用一边添加，毕竟我们访问的网站应该很有限
-+ 该工具的目的是删除不必要的代理规则，方便用户自定义代理的内容
-+ 代理规则放在github仓库中方便多设备同步，只需编辑[rules.txt](https://github.com/zhanyeye/clash-rules-lite/blob/main/rules.txt)即可
-+ 当用户更新规则后，使用Github Actions自动将规则缓存到免费CDN上 
-+ 用户在 github 上更新规则后，在 clash 的 providers 上点击刷新即可拉取更新
+### Tool introduction
+  Clash’s default GFW proxy rules contain too much content, and there is obvious delay during use.
+  The idea of this tool is to add proxy rules as you use them. After all, the websites we visit should be very limited.
+  The purpose of this tool is to delete unnecessary proxy rules and facilitate users to customize the content of the proxy
+  The proxy rules are placed in the github repository to facilitate multi-device synchronization. Just edit [rules.txt](https://github.com/zhanyeye/clash-rules-lite/blob/main/rules.txt)
+  When users update rules, use Github Actions to automatically cache the rules to a free CDN
+  After the user updates the rules on github, click refresh on the providers of clash to pull the updates
 
 
 ### 如何自定义
