@@ -1,8 +1,9 @@
 payload:
   - DOMAIN-KEYWORD,1drv
   - DOMAIN-KEYWORD,xbox  
-  - DOMAIN-KEYWORD,msn 
+  - DOMAIN-KEYWORD,msn
   - DOMAIN-KEYWORD,microsoft
+  - DOMAIN-SUFFIX,jjc.edu
   - DOMAIN-SUFFIX,xboxlive.com
   - DOMAIN-SUFFIX,gamepass.com
   - DOMAIN-SUFFIX,aadrm.com
