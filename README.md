@@ -11,9 +11,9 @@
   </p>
  
   <p align="center">
-    <a href="https://github.com/zhanyeye/clash-rules-lite/blob/main/proxy-rules.txt">代理规则列表</a> |
-    <a href="https://github.com/zhanyeye/clash-rules-lite/blob/main/microsoft-rules.txt">微软服务规则列表</a> |
-    <a href="https://github.com/zhanyeye/clash-rules-lite/blob/main/blacklist-rules.txt">黑名单规则列表</a>
+    <a href="https://github.com/zhanyeye/clash-rules-lite/blob/main/proxy-rules.txt">Proxy rules list</a> |
+    <a href="https://github.com/zhanyeye/clash-rules-lite/blob/main/microsoft-rules.txt">Microsoft service rules list</a> |
+    <a href="https://github.com/zhanyeye/clash-rules-lite/blob/main/blacklist-rules.txt">Blacklist rules list</a>
   </p>
 
 </p>
@@ -25,7 +25,7 @@
   https://cdn.jsdelivr.net/gh/zhanyeye/clash-rules-lite@release/blacklist-rules.txt</pre>
 </p>
 <p align="center">
-已稳定使用2年的机场推荐：https://inet.ssp.lol/#/register?code=p5BXMYcJ
+Proxy service recommendation used stably for 2 years: https://inet.ssp.lol/#/register?code=p5BXMYcJ
 </p>
 
 ### Tool introduction
@@ -37,11 +37,11 @@
   After the user updates the rules on github, click refresh on the providers of clash to pull the updates
 
 
-### 如何自定义
-1. fork 本仓库：[Fork zhanyeye/clash-rules-lite](https://github.com/zhanyeye/clash-rules-lite/fork) 
-2. 触发 GitHub Action 中的 `Generate Rules for Clash` 工作流
-3. 编辑 `xx-rules.txt` 以自定义规则
-4. 在对应的 Clash 上刷新配置文件
+### How to customize
+1. Fork this repository: [Fork zhanyeye/clash-rules-lite](https://github.com/zhanyeye/clash-rules-lite/fork) 
+2. Trigger the `Generate Rules for Clash` workflow in GitHub Actions
+3. Edit `xx-rules.txt` to customize rules
+4. Refresh the configuration file in Clash
 
 <div align="center">
   <center>
@@ -52,19 +52,19 @@
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">启动流水线示意图</div>
+    padding: 2px;">Pipeline startup diagram</div>
   </center>
 </div>
 
 
 Tips:
-> a. 可通过访问进行验证 `https://cdn.jsdelivr.net/gh/{你的GITHUB用户名}/clash-rules-lite@release/`   
-> c. **该仓中以 rules.txt 结尾的文件，都会缓存到 jsdelivr CDN中，可以自定义！**    
+> a. You can verify access via `https://cdn.jsdelivr.net/gh/{your-github-username}/clash-rules-lite@release/`   
+> c. **All files ending with `rules.txt` in this repository will be cached to jsDelivr CDN, so you can customize them!**    
 
 
-### 在 Clash Desktop 中生效
+### Apply in Clash Desktop
 
-1. 鼠标右击订阅的配置文件选中“复制”，将复制的文件命名为`local`（因为更新订阅链接时会覆盖你的修改）
+1. Right-click the subscribed configuration file and choose "Copy", then name the copied file `local` (because updating the subscription link will overwrite your changes)
 
 <div align="center">
   <center>
@@ -75,13 +75,13 @@ Tips:
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">拷贝一份配置订阅文件</div>
+    padding: 2px;">Copy a subscribed configuration file</div>
   </center>
 </div>
 
 
 
-2. 在你复制的 `local` 配置中，修改配置如下，注意 `proxies`, `proxy-groups` 和 `{YOUR-GITHUB-USERNAME}` 修改为你的配置（加粗的部分）
+2. In the copied `local` configuration, update settings as below. Replace `proxies`, `proxy-groups`, and `{YOUR-GITHUB-USERNAME}` with your own configuration (highlighted parts)
 
 
 <pre><code> 
@@ -92,22 +92,22 @@ mode: rule
 log-level: silent
 external-controller: '127.0.0.1:9090'
 proxies:
-    <b>- { name: '1-香港', type: *, server: **, port: *, cipher: **, password: **, udp: true }</b>
-    <b>- { name: '2-香港', type: *, server: **, port: *, cipher: **, password: **, udp: true }</b>
+    <b>- { name: '1-Hong Kong', type: *, server: **, port: *, cipher: **, password: **, udp: true }</b>
+    <b>- { name: '2-Hong Kong', type: *, server: **, port: *, cipher: **, password: **, udp: true }</b>
     <b>- ...</b>
 proxy-groups:
-    <b>- { name: '🔰 节点选择', type: select, proxies: ['1-香港', '2-香港'] }</b>
-    <b>- { name: '🎯 全球直连', type: select, proxies: ['DIRECT'] }</b>
-    <b>- { name: '🛑 全球拦截', type: select, proxies: ['REJECT'] }</b>
-    <b>- { name: 'Ⓜ️ 微软服务', type: select, proxies: ['🎯 全球直连', ] }</b>
-    <b>- { name: '🐟 漏网之鱼', type: select, proxies: ['🔰 节点选择'] }</b>
+    <b>- { name: '🔰 Node Selection', type: select, proxies: ['1-Hong Kong', '2-Hong Kong'] }</b>
+    <b>- { name: '🎯 Global Direct', type: select, proxies: ['DIRECT'] }</b>
+    <b>- { name: '🛑 Global Block', type: select, proxies: ['REJECT'] }</b>
+    <b>- { name: 'Ⓜ️ Microsoft Service', type: select, proxies: ['🎯 Global Direct', ] }</b>
+    <b>- { name: '🐟 Final Fallback', type: select, proxies: ['🔰 Node Selection'] }</b>
     <b>- ...</b>
 rules:
-  - RULE-SET,Backlist,🛑 全球拦截
-  - RULE-SET,Proxy,🔰 节点选择
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - GEOIP,CN,🎯 全球直连
-  - MATCH,🐟 漏网之鱼
+  - RULE-SET,Backlist,🛑 Global Block
+  - RULE-SET,Proxy,🔰 Node Selection
+  - RULE-SET,Microsoft,Ⓜ️ Microsoft Service
+  - GEOIP,CN,🎯 Global Direct
+  - MATCH,🐟 Final Fallback
 rule-providers:
   Proxy:
     type: http
@@ -131,7 +131,7 @@ rule-providers:
 </code></pre>
 
 
-3. 运行修改后的 `local` 配置，再切换成 `Rule` 模式
+3. Run the modified `local` configuration, then switch to `Rule` mode
 
 <div align="center">
   <center>
@@ -142,23 +142,23 @@ rule-providers:
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">运行修改后的本地配置</div>
+    padding: 2px;">Run the modified local configuration</div>
   </center>
 </div>
 
-### 在OpenWrt的OpenClash中生效
-> OpenWrt 是一个软路由系统，如果你没有用到，请忽略”
+### Apply in OpenClash on OpenWrt
+> OpenWrt is a soft-router system. If you do not use it, please ignore this section.
 
-需要更新配置文件的`rules`和 `rule-providers`, 注意：
-+ 用户名需要替换成用户自己的!!!
-+ rules 中所属的group需要替换成自己的 `proxy-groups`!!!
+You need to update `rules` and `rule-providers` in your config file. Note:
++ Replace the username with your own!!!
++ Replace the group in `rules` with your own `proxy-groups`!!!
 ```
 rules:
-  - RULE-SET,Backlist,🛑 全球拦截
-  - RULE-SET,Proxy,🔰 节点选择
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - GEOIP,CN,🎯 全球直连
-  - MATCH,🐟 漏网之鱼
+  - RULE-SET,Backlist,🛑 Global Block
+  - RULE-SET,Proxy,🔰 Node Selection
+  - RULE-SET,Microsoft,Ⓜ️ Microsoft Service
+  - GEOIP,CN,🎯 Global Direct
+  - MATCH,🐟 Final Fallback
 rule-providers:
   Proxy:
     type: http
@@ -184,11 +184,11 @@ rule-providers:
 
 
 
-### 自定义代理规则
-+ 修改代码仓中以 rule.txt 结尾的文件即可, 也可以自己新增以rule.txt结尾的配置，都会生效
-+ 修改后需要在clash中刷新，并重启clash才能生效
+### Custom proxy rules
++ Just modify files ending with `rule.txt` in this repository. You can also add new files ending with `rule.txt`, and they will all take effect.
++ After modification, refresh in Clash and restart Clash for changes to apply.
 
-> clash desktop 中刷新操作
+> Refresh operation in Clash Desktop
 <div align="center">
   <center>
     <img width="800" style="border-radius: 0.3125em;
@@ -198,13 +198,13 @@ rule-providers:
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">Clash 客户端上刷新 providers, 并重启clash</div>
+    padding: 2px;">Refresh providers in Clash client and restart Clash</div>
   </center>
 </div>
 
-> OpenClash 中刷新操作
+> Refresh operation in OpenClash
 
-配置文件管理 -> 规则集文件列表 -> 删除所有文件 -> 返回概览 -> 应用配置
+Configuration File Management -> Rule Set File List -> Delete all files -> Back to Overview -> Apply configuration
 <div align="center">
   <center>
     <img width="800" style="border-radius: 0.3125em;
@@ -214,21 +214,21 @@ rule-providers:
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">OpenClash上删除规则集文件, 并重新应用配置</div>
+    padding: 2px;">Delete rule set files in OpenClash and re-apply configuration</div>
   </center>
 </div>
 
 
-+ jsdelivr CDN 缓存没有更新怎么办？
++ What if jsDelivr CDN cache is not updated?
 
-> 这是因为 jsdelivr CDN 缓存的原因，一般来说是 24小时刷新缓存，但是这样太慢了！   
-> 不过 jsdelivr CDN 也提供手动刷新缓存的方法：
+> This is caused by jsDelivr CDN caching. Usually it refreshes every 24 hours, but that is too slow!   
+> jsDelivr CDN also provides a manual cache refresh method:
 ```
-# 假设你的文件 URL 是这样：
+# Suppose your file URL is:
 https://cdn.jsdelivr.net/xxx/xxx...
 
-# 那么把域名中的 cdn 改为 purge 即可：
+# Replace the domain from cdn to purge:
 https://purge.jsdelivr.net/xxx/xxx...
 ```
-然后访问这个文件新 URL 就会提示你刷新成功！
+Then access the new URL and it will show that refresh succeeded!
 
