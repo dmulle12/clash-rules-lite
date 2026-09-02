@@ -31,6 +31,15 @@ proxies:
     password: "abc124"
     udp: true
 
+  - name: "🇯🇵 Japan-relay"
+    type: vmess
+    server: 161.33.215.192
+    port: 8266
+    uuid: "b8043a6d-c73c-40df-af76-00d61d3b97b2"
+    alterId: 0
+    cipher: auto
+    network: tcp
+
 proxy-groups:
   - name: 🎯 PROXIES
     type: select
@@ -44,6 +53,7 @@ proxy-groups:
       - "DIRECT"
       - "🇺🇸 us-relay"
       - "🇺🇸 us-azure"
+      - "🇯🇵 Japan-relay"
 
 rule-providers:
   reject:
