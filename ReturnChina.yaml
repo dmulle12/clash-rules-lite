@@ -53,6 +53,13 @@ rule-providers:
     path: ./ruleset/reject.yaml
     interval: 86400
 
+  private:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
   School_M365:
     type: http
     behavior: classical
@@ -60,11 +67,12 @@ rule-providers:
     path: ./ruleset/School_M365.txt
     interval: 86400
 
-  private:
+
+  ChinaDomain:
     type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt"
-    path: ./ruleset/private.yaml
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+    path: ./ruleset/ChinaDomain
     interval: 86400
 
 rules:
@@ -79,4 +87,5 @@ rules:
   - DOMAIN-SUFFIX,anthropic.com,🎯 PROXIES
   - DOMAIN-SUFFIX,claude.ai,🎯 PROXIES
   - RULE-SET,School_M365,🎯 PROXIES
+  - RULE-SET,ChinaDomain,DIRECT,no-resolve
   - MATCH,🐟 Default Policy
