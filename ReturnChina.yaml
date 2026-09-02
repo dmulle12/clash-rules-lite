@@ -33,7 +33,7 @@ proxies:
 
   - name: "🇯🇵 Japan-relay"
     type: vmess
-    server: 161.33.215.192
+    server: 1.2.3.4
     port: 8266
     uuid: "b8043a6d-c73c-40df-af76-00d61d3b97b2"
     alterId: 0
