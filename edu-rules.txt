@@ -88,6 +88,8 @@ payload:
   - DOMAIN-SUFFIX,yammerusercontent.com
   - DOMAIN-SUFFIX,login.microsoftonline.com
   - DOMAIN-SUFFIX,auth.microsoft.com
+  - DOMAIN,outlook.office365.com
+  - DOMAIN,login.microsoftonline.com
 
   # School domains
   - DOMAIN-SUFFIX,csun.edu
