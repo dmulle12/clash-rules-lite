@@ -1,4 +1,4 @@
-# 12.01am Sun 23 Aug 2026
+# 12.01am Sun 31 Aug 2026
 dns:
   enable: true
   ipv6: false
@@ -33,7 +33,7 @@ proxy-groups:
   - name: 🎯 PROXIES
     type: select
     proxies:
-      - "🇺🇸 us-atlantic"
+      - "🇺🇸 us-relay"
       - "🇺🇸 us-azure"
 
   - name: 🐟 Default Policy
