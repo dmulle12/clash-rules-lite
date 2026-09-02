@@ -63,6 +63,7 @@ rule-providers:
   School_M365:
     type: http
     behavior: classical
+    format: text
     url: "https://raw.githubusercontent.com/Jovanykoch/JovanyKoch.github.io/main/Clash/rule/School_M365.txt"
     path: ./ruleset/School_M365.txt
     interval: 86400
@@ -71,6 +72,7 @@ rule-providers:
   ChinaDomain:
     type: http
     behavior: classical
+    format: yaml
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
     path: ./ruleset/ChinaDomain,yaml
     interval: 86400
@@ -78,14 +80,19 @@ rule-providers:
 rules:
   - RULE-SET,private,DIRECT
   - RULE-SET,reject,REJECT
-  - DOMAIN-SUFFIX,github.com,🎯 PROXIES
-  - DOMAIN-KEYWORD,github,🎯 PROXIES
+
+  - DOMAIN-SUFFIX,amemv.com,🎯 PROXIES
+  - DOMAIN-SUFFIX,snssdk.com,🎯 PROXIES
+
   - DOMAIN-SUFFIX,openai.com,🎯 PROXIES
   - DOMAIN-SUFFIX,geminiai.com,🎯 PROXIES
   - DOMAIN-SUFFIX,chatgpt.com,🎯 PROXIES
+
   - DOMAIN-SUFFIX,anthropic.com,🎯 PROXIES
   - DOMAIN-SUFFIX,claude.ai,🎯 PROXIES
+
   - RULE-SET,School_M365,🎯 PROXIES
   - RULE-SET,ChinaDomain,DIRECT,no-resolve
+
   - GEOIP,CN,DIRECT,no-resolve
   - MATCH,🐟 Default Policy
