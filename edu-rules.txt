@@ -4,6 +4,8 @@ payload:
 
   - DOMAIN-KEYWORD,1drv
   - DOMAIN-KEYWORD,microsoft
+  - DOMAIN-KEYWORD,outlook
+  - DOMAIN-KEYWORD,office365
   - DOMAIN-KEYWORD,studentoffers
   - DOMAIN-SUFFIX,studentoffers.co
   - DOMAIN-SUFFIX,studentbeans.com
