@@ -72,7 +72,7 @@ rule-providers:
     type: http
     behavior: classical
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
-    path: ./ruleset/ChinaDomain
+    path: ./ruleset/ChinaDomain,yaml
     interval: 86400
 
 rules:
