@@ -1,4 +1,7 @@
 # 12.01am Sun 31 Aug 2026
+unified-delay: true
+profile:
+  store-fake-ip: true
 dns:
   enable: true
   ipv6: false
@@ -11,7 +14,6 @@ dns:
   nameserver:
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
-
 proxies:
   - name: "🇺🇸 us-relay"
     type: ss
