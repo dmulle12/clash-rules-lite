@@ -77,7 +77,6 @@ rule-providers:
 
 rules:
   - RULE-SET,private,DIRECT
-  - GEOIP,LAN,DIRECT,no-resolve
   - RULE-SET,reject,REJECT
   - DOMAIN-SUFFIX,github.com,🎯 PROXIES
   - DOMAIN-KEYWORD,github,🎯 PROXIES
@@ -88,4 +87,5 @@ rules:
   - DOMAIN-SUFFIX,claude.ai,🎯 PROXIES
   - RULE-SET,School_M365,🎯 PROXIES
   - RULE-SET,ChinaDomain,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
   - MATCH,🐟 Default Policy
