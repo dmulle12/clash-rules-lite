@@ -86,6 +86,8 @@ payload:
   - DOMAIN-SUFFIX,wunderlist.com
   - DOMAIN-SUFFIX,yammer.com
   - DOMAIN-SUFFIX,yammerusercontent.com
+  - DOMAIN-SUFFIX,login.microsoftonline.com
+  - DOMAIN-SUFFIX,auth.microsoft.com
 
   # School domains
   - DOMAIN-SUFFIX,csun.edu
