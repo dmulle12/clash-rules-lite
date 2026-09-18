@@ -1,0 +1,106 @@
+# 12.01am Sun 31 Aug 2026
+unified-delay: true
+profile:
+  store-fake-ip: true
+dns:
+  enable: true
+  ipv6: false
+  listen: 127.0.0.1:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+proxies:
+  - name: "🇺🇸 us-relay"
+    type: ss
+    server: 69.28.88.179
+    port: 8388
+    cipher: aes-256-gcm
+    password: "abc123"
+    udp: true
+  - name: "🇺🇸 us-azure"
+    type: ss
+    server: 20.57.147.55
+    port: 2059
+    cipher: aes-256-gcm
+    password: "abc124"
+    udp: true
+  - name: "🇯🇵 Japan-relay"
+    type: ss
+    server: 168.110.55.8
+    port: 443
+    uuid: "b8043a6d-c73c-40df-af76-00d61d3b97b2"
+    alterId: 0
+    cipher: 2022-blake3-aes-256-gcm
+    network: tcp
+    flow: ""
+    password: rshz7nCLmsScPMUw/yN4YgX1Ztra5gbJrZRz93A1a5k=
+  - auth-key: tskey-auth-k1YP1STHuz11CNTRL-CUHYSD1c1fVzVciKRJAXfVpco97GD3A8B
+    ephemeral: true
+    hostname: surge-ios
+    interface-name: vnic-01.taildc049a.ts.net
+    name: Tailscale
+    type: tailscale
+proxy-groups:
+  - name: ☁️Select
+    type: select
+    proxies:
+      - DIRECT
+      - 🇺🇸 us-relay
+      - 🇺🇸 us-azure
+      - 🇯🇵 Japan-relay
+    icon: https://raw.githubusercontent.com/mphin/GroupIcons/main/icon/emoji/apple/emojiall_cloud.png
+  - name: 🎯 Proxies
+    type: select
+    proxies:
+      - 🇺🇸 us-relay
+      - 🇺🇸 us-azure
+    icon: https://raw.githubusercontent.com/mphin/GroupIcons/main/icon/emoji/apple/emojiall_dart.png
+  - name: 🐟 Default
+    type: select
+    proxies:
+      - DIRECT
+      - 🇺🇸 us-relay
+      - 🇺🇸 us-azure
+    icon: https://raw.githubusercontent.com/mphin/GroupIcons/main/icon/emoji/apple/emojiall_fish.png
+rule-providers:
+  Private:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+  Study:
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: https://raw.githubusercontent.com/dmulle12/clash-rules-lite/main/study-rules.txt
+  Apple_Domain:
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Domain.txt
+    interval: 86400
+    behavior: domain-text
+  Microsoft:
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
+    interval: 86400
+    behavior: classical
+  Google:
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
+    interval: 86400
+    behavior: classical
+rules:
+  - RULE-SET,Private,DIRECT
+  - GEOSITE,openai,🎯 Proxies
+  - RULE-SET,Study,🎯 Proxies
+  - RULE-SET,Google,☁️Select
+  - RULE-SET,Microsoft,☁️Select
+  - GEOSITE,microsoft,☁️Select
+  - GEOIP,US,🎯 Proxies
+  - MATCH,🐟 Default
+mode: rule
+http:
+  ca: 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
+  ca-passphrase: KHE7AR8F
