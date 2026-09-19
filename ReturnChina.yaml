@@ -1,3 +1,8 @@
+mode: rule
+ 
+# 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
+log-level: info
+
 # 12.01am Sun 31 Aug 2026
 unified-delay: true
 profile:
