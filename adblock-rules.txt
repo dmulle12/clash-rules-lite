@@ -1,0 +1,22 @@
+payload:
+  - DOMAIN,iadsdk.apple.com
+  - DOMAIN,dit.whatsapp.net
+  - DOMAIN,a.magsrv.com
+  - DOMAIN,cdn.tsyndicate.com
+  - DOMAIN,fbs.smoot.apple.com
+  - DOMAIN,firebaselogging-pa.googleapis.com
+  - DOMAIN,js.onclckbnr.com
+  - DOMAIN,lf-leads-fe-scm.bytecdn.com
+  - DOMAIN,log-hl.snssdk.com
+  - DOMAIN,log0-misc-lf.amemv.com
+  - DOMAIN,mssdk3-normal-hj.zijieapi.com
+  - DOMAIN,ptelastaxo.com
+  - DOMAIN,s10.histats.com
+  - DOMAIN,sdk.51.la
+  - DOMAIN,stats.g.doubleclick.net
+  - DOMAIN,tnc0-aliec2.zijieapi.com
+  - DOMAIN,www.googletagmanager.com
+  - DOMAIN,go.mavrtracktor.com
+  - DOMAIN,netapm.music.163.com
+  - DOMAIN,clientlogsf.music.163.com
+  - DOMAIN,clientlogdep.music.163.com
